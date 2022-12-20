@@ -42,6 +42,13 @@ def get_sec_filings(symbol: str) -> pd.DataFrame:
         "lxml",
     )
 
+    # Piece of code that fill fix issue #3752
+    # # Check if sec fillings field exists in HTML
+    # soup_secField = text_soup_financials.find("a", {"class": "link js-subTab",
+    #                                                 "instrument-target": "financials/secfilings"})
+    # if not soup_secField:
+    #     return pd.DataFrame()
+
     # a_financials_header = list()
     df_financials = None
     b_ready_to_process_info = False
