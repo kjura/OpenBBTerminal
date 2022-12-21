@@ -16,8 +16,8 @@ def test_analyst():
 @pytest.mark.vcr
 @pytest.mark.record_stdout
 def test_sec_filings_is_empty():
-    #marketwatch_view.sec_filings(symbol="TSLA", limit=5, export=None)
-    #marketwatch_view.sec_filings(symbol="TSLA", limit=5, export=None)
-    #marketwatch_view.sec_filings(symbol="TSLA", limit=5, export=None)
-    #marketwatch_view.sec_filings(symbol="TSLA", limit=5, export=None)
+    # marketwatch_view.sec_filings(symbol="TSLA", limit=5, export=None)
+    # marketwatch_view.sec_filings(symbol="TSLA", limit=5, export=None)
+    # marketwatch_view.sec_filings(symbol="TSLA", limit=5, export=None)
+    # marketwatch_view.sec_filings(symbol="TSLA", limit=5, export=None)
     pass

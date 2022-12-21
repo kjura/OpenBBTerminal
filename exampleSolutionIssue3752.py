@@ -7,6 +7,7 @@ import random
 import requests
 from bs4 import BeautifulSoup
 
+
 def get_user_agent() -> str:
     """Get a not very random user agent."""
     user_agent_strings = [
@@ -42,16 +43,17 @@ def get_sec_filings(symbol: str) -> pd.DataFrame:
         f"https://www.marketwatch.com/investing/stock/{symbol}/financials/secfilings"
     )
 
-    text_soup_secField = BeautifulSoup(requests.get(url_financials,
-                                                    headers={"User-Agent": get_user_agent()}).text,
-                                                    "lxml",
+    text_soup_secField = BeautifulSoup(
+        requests.get(url_financials, headers={"User-Agent": get_user_agent()}).text,
+        "lxml",
     )
 
-    soup_secField = text_soup_secField.find("a", {"class": "link js-subTab",
-                                                      "instrument-target": "financials/secfilings"})
+    soup_secField = text_soup_secField.find(
+        "a", {"class": "link js-subTab", "instrument-target": "financials/secfilings"}
+    )
 
     if not soup_secField:
-        return print('This command is for US-listed tickers only.')
+        return print("This command is for US-listed tickers only.")
     else:
         pass
 
@@ -63,16 +65,15 @@ def get_sec_filings(symbol: str) -> pd.DataFrame:
     #     print('Sec filings section does not exist. Please try your query with a different ticker')
 
     # print(soup_financials)
-    #print(text_soup_financials.prettify())
-    #print(type(allLinks[0]))
+    # print(text_soup_financials.prettify())
+    # print(type(allLinks[0]))
 
 
-#get_sec_filings('AAPL') # vwce
-get_sec_filings('aapl')
-#sec = get_sec_filings('AAPL')
+# get_sec_filings('AAPL') # vwce
+get_sec_filings("aapl")
+# sec = get_sec_filings('AAPL')
 # attribute for sec fillings (unique?) <a class="link js-subTab" instrument-target="financials/secfilings"
 # https://www.marketwatch.com/investing/stock/aapl/financials/secfilings
-
 
 
 # if df_financials.empty:

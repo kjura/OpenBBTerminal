@@ -43,8 +43,9 @@ def get_sec_filings(symbol: str) -> pd.DataFrame:
     )
 
     # Check if sec fillings field exists in HTML
-    soup_secField = text_soup_financials.find("a", {"class": "link js-subTab",
-                                                    "instrument-target": "financials/secfilings"})
+    soup_secField = text_soup_financials.find(
+        "a", {"class": "link js-subTab", "instrument-target": "financials/secfilings"}
+    )
     if not soup_secField:
         return pd.DataFrame()
 

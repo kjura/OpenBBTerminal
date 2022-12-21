@@ -24,10 +24,7 @@ def test_get_rating_over_time(recorder):
 @pytest.mark.vcr
 @pytest.mark.parametrize(
     "ticker",
-    [
-        ("VWCE.DE")
-    ],
+    [("VWCE.DE")],
 )
 def test_sec_filings_exists(recorder):
     pass
-
