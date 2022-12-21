@@ -26,10 +26,9 @@ def sec_filings(symbol: str, limit: int = 5, export: str = ""):
     """
     df_financials = marketwatch_model.get_sec_filings(symbol)
 
-    # Piece of code that will fix issue #3752
-    # if df_financials.empty:
-    #     print("This command is for US-listed tickers only.")
-    #     return None
+    if df_financials.empty:
+        print("This command is for US-listed tickers only.")
+        return None
 
     print_rich_table(
         df_financials.head(limit),
