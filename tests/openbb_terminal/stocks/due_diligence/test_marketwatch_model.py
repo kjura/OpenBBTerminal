@@ -19,3 +19,15 @@ def vcr_config():
 def test_get_rating_over_time(recorder):
     result_df = marketwatch_model.get_sec_filings(symbol="TSLA")
     recorder.capture(result_df)
+
+
+@pytest.mark.vcr
+@pytest.mark.parametrize(
+    "ticker",
+    [
+        ("VWCE.DE")
+    ],
+)
+def test_sec_filings_exists(recorder):
+    pass
+
